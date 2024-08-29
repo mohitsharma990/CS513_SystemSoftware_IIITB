@@ -39,7 +39,7 @@ int main(int argc, char *argv[]) {
 
 
 /*
-  To use this named pipe: on 
+  To use this named pipe:
   terminal 1 : cat > myfifo
   terminal 2 : cat < myfifo
 */
