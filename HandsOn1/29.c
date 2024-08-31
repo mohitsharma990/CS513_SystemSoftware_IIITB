@@ -8,43 +8,53 @@ SCHED_RR).
 Date: 31st Aug, 2024.
 ============================================================================
 */
+#include <stdio.h>
+#include <unistd.h>
+#include <sys/types.h>
+#include <sys/stat.h>
+#include <fcntl.h>
+#include <sys/time.h>
+#include <sched.h>
 
-#include <stdio.h>     // For printf(), perror()
-#include <unistd.h>    // For getpid()
-#include <sched.h>     // For sched_getscheduler(), sched_setscheduler(), struct sched_para  
-
-int main() {
-    int currentPolicy;
-    pid_t pid;
-    pid = getpid();
-    currentPolicy = sched_getscheduler(pid);
-    struct sched_param priority;
-    priority.sched_priority = 10;
-
-    switch (currentPolicy)
-    {
-    case SCHED_FIFO:
-        printf("Current policy is FIFO\n");
-        sched_setscheduler(pid, SCHED_RR, &priority);
-        currentPolicy = sched_getscheduler(pid);
-        printf("Current policy is %d\n", currentPolicy);
-        break;
-    case SCHED_RR:
-        printf("Current policy is RR\n");
-        sched_setscheduler(pid, SCHED_FIFO, &priority);
-        currentPolicy = sched_getscheduler(pid);
-        printf("Current policy is %d\n", currentPolicy);
-        break;
-    case SCHED_OTHER:
-        printf("Current policy is OTHER\n");
-        sched_setscheduler(pid, SCHED_RR, &priority);
-        currentPolicy = sched_getscheduler(pid);
-        printf("Current policy is %d\n", currentPolicy);
-        break;
-    default:
-        perror("Error while getting current policy\n");
-    }
-    return 0;
+int main(int argc, char* argv[]){
+	struct sched_param p;
+	int status;
+	printf("Current scheduling policy:\n");
+	switch(sched_getscheduler(getpid())){
+		case SCHED_FIFO: 
+			printf("SCHED_FIFO\n");
+			p.sched_priority = sched_get_priority_max(SCHED_RR);
+			status = sched_setscheduler(getpid(), SCHED_RR, &p);
+			break;
+		case SCHED_RR:
+			printf("SCHED_RR\n");
+			p.sched_priority = sched_get_priority_max(SCHED_FIFO);
+			status = sched_setscheduler(getpid(), SCHED_FIFO, &p);
+			break;
+		default:
+			printf("SCHED_OTHER\n");
+			p.sched_priority = sched_get_priority_max(SCHED_FIFO);
+			status = sched_setscheduler(getpid(), SCHED_FIFO, &p);
+			break;
+	}
+	if(status != 0){
+		printf("Issue changing policy");
+	}
+	else{
+		printf("Modified scheduling policy:\n");
+		switch(sched_getscheduler(getpid())){
+			case SCHED_FIFO: 
+				printf("SCHED_FIFO\n");
+				break;
+			case SCHED_RR:
+				printf("SCHED_RR\n");
+				break;
+			default:
+				printf("SCHED_OTHER\n");
+				break;
+		}
+	}
+	return 0;
 }
 
 /*
