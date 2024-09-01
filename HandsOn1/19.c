@@ -1,6 +1,11 @@
-// Write a program to find out time taken to execute getpid system call. Use time stamp counter.
-//Name : Mohit Sharma
-//Roll no : MT2024091
+/*
+============================================================================
+Name : 19.c
+Author : Mohit Sharma
+Description : Write a program to find out time taken to execute getpid system call. Use time stamp counter.
+Date: 30st Aug, 2024.
+============================================================================
+*/
 
 #include <stdio.h> // import printf
 #include <sys/time.h> // import gettimeofday and struct timeval
@@ -29,8 +34,11 @@ int main(int argc, char *argv[]) {
 //info :
 // getpid() system call, which retrieves the process ID of the calling process. Here’s a breakdown of the code:
 
-/* Output :
+/*
+============================================================================
+Output :
 ./a.out                                                                           ─╯
 Process ID: 65053
 Time taken for getpid system call: 0.000000 us
+============================================================================
 */

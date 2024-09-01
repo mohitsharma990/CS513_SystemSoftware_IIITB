@@ -1,13 +1,15 @@
 /*
-Write a program to perform Record locking.
-a. Implement write lock
-b. Implement read lock
-Create three records in a file. Whenever you access a particular record, first lock it then modify/access
-to avoid race condition.
+============================================================================
+Name : 18_write.c
+Author : Mohit Sharma
+Description : Write a program to perform Record locking.
+                a. Implement write lock
+                b. Implement read lock
+              Create three records in a file. Whenever you access a particular record, first lock it then modify/access
+              to avoid race condition.
+Date: 30st Aug, 2024.
+============================================================================
 */
-
-//Name : Mohit Sharma
-//Roll no : MT2024091
 
 #include <stdio.h> // import perror, printf 
 #include <stdlib.h> // import exit 
@@ -77,7 +79,9 @@ int main(int argc, char *argv[]) {
 }
 
 
-/* ./a.out records
+/*
+============================================================================
+  ./a.out records
   Enter record number to write (1, 2, 3) : 3
   Before entering into the critical section
   Inside the critical section
@@ -85,15 +89,20 @@ int main(int argc, char *argv[]) {
   Press ENTER to update the record values:
   Enter new number 1: 12
   Enter new number 2: 15
-
+============================================================================
 */
 
-/* another terminal :
+/*
+============================================================================
+another terminal :
   Enter record number to write (1, 2, 3) : 3
   Before entering into the critical section
+============================================================================
 */
 
-/* third terminal 
+/*
+============================================================================
+third terminal 
   Enter record number to write (1, 2, 3) : 2
   Before entering into the critical section
   Inside the critical section
@@ -101,4 +110,5 @@ int main(int argc, char *argv[]) {
   Press ENTER to update the record values:
   Enter new number 1: 9
   Enter new number 2: 10
+============================================================================
 */  

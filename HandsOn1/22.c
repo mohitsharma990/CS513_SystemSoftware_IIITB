@@ -1,8 +1,12 @@
-// Write a program, open a file, call fork, and then write to the file by both the child as well as the
-// parent processes. Check output of the file.
-
-// Name : Mohit Sharma
-// Roll no : MT2024091
+/*
+============================================================================
+Name : 22.c
+Author : Mohit Sharma
+Description :  Write a program, open a file, call fork, and then write to the file by both the child as well as the
+parent processes. Check output of the file.
+Date: 30th Aug, 2024.
+============================================================================
+*/
 
 #include <stdio.h> //for printf and perror
 #include <stdlib.h> //for exit
@@ -34,9 +38,13 @@ int main(int argc, char *argv[]) {
   return 0;
 }
 
-/* output :
- ./a.out file.txt 
+
+/*
+============================================================================
+Output :
+./a.out file.txt 
 
 cat file.txt                                                                      ─╯
 Content written in the parent processContent written in the child process //here in this scenario : Parent writes first, then child
+============================================================================
 */

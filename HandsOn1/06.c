@@ -1,6 +1,11 @@
-// Write a program to take input from STDIN and display on STDOUT. Use only read/write system calls
-// Name : Mohit Sharma
-// Roll no : MT2024091
+/*
+============================================================================
+Name : 06.c
+Author : Mohit Sharma
+Description : Write a program to take input from STDIN and display on STDOUT. Use only read/write system calls
+Date: 24th Aug, 2024.
+============================================================================
+*/
 
 #include <stdio.h> // import printf and perror and fflush functions
 #include <unistd.h> // import for 'read' & 'write' system calls
@@ -15,6 +20,10 @@ int main(int argc, char *argv[]) {
   return 0;
 }
 
-// Command line : ./a.out
-// My name is Mohit Sharma.
-// Output : My name is Mohit Sharma.
+/*
+============================================================================
+Command line : ./a.out
+My name is Mohit Sharma.
+Output : My name is Mohit Sharma.
+============================================================================
+*/

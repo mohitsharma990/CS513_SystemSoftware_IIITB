@@ -1,9 +1,13 @@
-// Write a program to open a file, duplicate the file descriptor and append the file with both the
-// descriptors and check whether the file is updated properly or not.
-// b. use dup2
-
-//Name : Mohit Sharma
-//Roll no : MT2024091
+/*
+============================================================================
+Name : 11_b.c
+Author : Mohit Sharma
+Description : Write a program to open a file, duplicate the file descriptor and append the file with both the
+              descriptors and check whether the file is updated properly or not.
+              b. use dup2
+Date: 29th Aug, 2024.
+============================================================================
+*/
 
 #include <stdio.h> //import printf 
 #include <unistd.h> //import write and dup2 system calls
@@ -25,10 +29,13 @@ int main(int argc, char *argv[]) {
   return 0;
 }
 
-//command line : ./a.out file.txt
-// cat file.txt
-/* output :
-* Hello world // this text already exits inside the file
-* writing to original fd 
-* writing to the duplicate fd
+/*
+============================================================================
+command line : ./a.out file.txt
+cat file.txt
+output :
+Hello world // this text already exits inside the file
+writing to original fd 
+writing to the duplicate fd 
+============================================================================
 */

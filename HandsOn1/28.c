@@ -3,6 +3,7 @@
 Name : 28.c
 Author : Mohit Sharma
 Description : Write a program to get maximum and minimum real time priority.
+
 Date: 31st Aug, 2024.
 ============================================================================
 */
@@ -26,7 +27,6 @@ int main(int argc, char* argv[]){
 /*
 ============================================================================
 Output :
-./a.out
 ./a.out                                                                                                                                                 ─╯
 
 SCHED_FIFO: Max real time priority: 47

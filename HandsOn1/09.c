@@ -1,19 +1,21 @@
 /*
-Write a program to print the following information about a given file.
-a. inode
-b. number of hard links
-c. uid
-d. gid
-e. size
-f. block size
-g. number of blocks
-h. time of last access
-i. time of last modification
-j. time of last change
+============================================================================
+Name : 09.c
+Author : Mohit Sharma
+Description : Write a program to print the following information about a given file.
+                a. inode
+                b. number of hard links
+                c. uid
+                d. gid
+                e. size
+                f. block size
+                g. number of blocks
+                h. time of last access
+                i. time of last modification
+                j. time of last change
+Date: 24th Aug, 2024.
+============================================================================
 */
-
-//Name : Mohit Sharma
-//Roll no : MT2024091
 
 #include <stdio.h> // import perror and printf 
 #include <sys/stat.h> // import stat structure
@@ -49,5 +51,20 @@ int main(int argc, char *argv[]) {
   return 0;
 }
 
-// command line : ./a.out file.txt
-// output : 
+/*
+============================================================================
+command line : ./a.out file.txt
+output : 
+File name : file.txt
+Inode number : 449568507
+Number of hard links to the given file : 1
+uid : 501
+gid : 20
+size : 2912 Bytes
+number of blocks  : 8
+block size : 4096
+time of last access : Sun Sep  1 15:14:45 2024
+time of last modification : Sun Sep  1 15:14:43 2024
+time of last change : Sun Sep  1 15:14:43 2024
+============================================================================
+*/

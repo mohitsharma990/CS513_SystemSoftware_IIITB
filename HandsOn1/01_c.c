@@ -1,6 +1,11 @@
-// Create a FIFO file using 'mknod' system call or 'mkfifo' library function
-// Name : Mohit Sharma
-// Roll No : MT2024091
+/*
+============================================================================
+Name : 01_c.c
+Author : Mohit Sharma
+Description : Create a FIFO file using 'mknod' system call or 'mkfifo' library function
+Date: 20 Aug, 2024.
+============================================================================
+*/
 
 //FIFO file ~ named pipes
 #include <sys/stat.h> // Defines the mknod system call and file mode constants (e.g., S_IFIFO, S_IRWXU)
@@ -34,12 +39,14 @@ int main(int argc, char *argv[]) {
   return 0;
 }
 
-// Command line : ./a.out myfifo
-// Output : FIFO file created succesfully
-
-
 /*
-  To use this named pipe:
-  terminal 1 : cat > myfifo
-  terminal 2 : cat < myfifo
+============================================================================
+Command line : ./a.out myfifo
+Output : FIFO file created succesfully
+
+
+To use this named pipe:
+terminal 1 : cat > myfifo
+terminal 2 : cat < myfifo
+============================================================================
 */

@@ -1,6 +1,11 @@
-// Write a program to copy file1 into file2 ($cp file1 file2).
-// Name : Mohit Sharma
-// Roll no : MT2024091
+/*
+============================================================================
+Name : 07.c
+Author : Mohit Sharma
+Description : Write a program to copy file1 into file2 ($cp file1 file2).
+Date: 24th Aug, 2024.
+============================================================================
+*/
 
 #include <stdio.h> // for printf and perror functions
 #include <fcntl.h> // for open system call
@@ -41,4 +46,8 @@ int main(int argc, char *argv[]) {
   return 0;
 }
 
-// Command line : ./a.out file1 file2
+/*
+============================================================================
+Command line : ./a.out file1 file2
+============================================================================
+*/

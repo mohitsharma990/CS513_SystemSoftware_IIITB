@@ -1,7 +1,12 @@
-//Write a program to display the environmental variable of the user (use environ)
+/*
+============================================================================
+Name : 15.c
+Author : Mohit Sharma
+Description : Write a program to display the environmental variable of the user (use environ)
+Date: 30st Aug, 2024.
+============================================================================
+*/
 
-//Name : Mohit Sharma
-//Roll no : MT2024091
 
 //Environment variables are key-value pairs that provide information to the processes 
 //running in the operating system, such as PATH, HOME, USER, etc.
@@ -17,8 +22,10 @@ int main(int argc, char *argv[], char *envp[]) { // envp[]: An array of strings 
   return 0;
 }
 
-//command line : ./a.out
-/* output : 
+/*
+============================================================================
+command line : ./a.out
+output : 
 TERM_SESSION_ID=w0t0p0:A1E877AC-ED18-4477-B434-A581AA849CA0
 SSH_AUTH_SOCK=/private/tmp/com.apple.launchd.qzGglH49ui/Listeners
 LC_TERMINAL_VERSION=3.5.4
@@ -61,4 +68,5 @@ LS_COLORS=di=1;36:ln=35:so=32:pi=33:ex=31:bd=34;46:cd=34;43:su=30;41:sg=30;46:tw
 P9K_SSH=0
 _P9K_SSH_TTY=/dev/ttys000
 _=/Users/mohitsharma/IIIT Bangalore/Semesters_Info/Sem_1/Software_systems/CS513_SystemSoftware_IIITB/HandsOn1/./a.out
+============================================================================
 */

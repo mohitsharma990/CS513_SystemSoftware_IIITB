@@ -1,6 +1,11 @@
-//Write a program, call fork and print the parent and child process id.
-//Name : Mohit Sharma
-//Roll no : MT2024091
+/*
+============================================================================
+Name : 21.c
+Author : Mohit Sharma
+Description : Write a program, call fork and print the parent and child process id.
+Date: 30st Aug, 2024.
+============================================================================
+*/
 
 #include <stdio.h>   // For printf()
 #include <unistd.h>  // For fork(), getpid(), and getppid()
@@ -19,8 +24,12 @@ int main(int argc, char *argv[]) {
   return 0;
 }
 
-/* output :
+
+/*
+============================================================================
+Output :
 ./a.out                                                                           ─╯
 Current process ID: 65671 and child process ID: 65672
 Child process ID: 65672 and parent process ID: 65671  
+============================================================================
 */

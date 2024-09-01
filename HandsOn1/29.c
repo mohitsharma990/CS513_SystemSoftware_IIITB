@@ -8,13 +8,10 @@ SCHED_RR).
 Date: 31st Aug, 2024.
 ============================================================================
 */
-#include <stdio.h>
-#include <unistd.h>
-#include <sys/types.h>
-#include <sys/stat.h>
-#include <fcntl.h>
-#include <sys/time.h>
-#include <sched.h>
+
+#include <stdio.h> //for printf() 
+#include <sched.h> //for scheduling commands 
+#include <unistd.h> //for getpid() 
 
 int main(int argc, char* argv[]){
 	struct sched_param p;
@@ -60,7 +57,12 @@ int main(int argc, char* argv[]){
 /*
 ============================================================================
 Output :
-./a.out
+sudo ./a.out
 
+[sudo] password for mohit: 
+Current scheduling policy:
+SCHED_OTHER
+Modified scheduling policy:
+SCHED_FIFO
 ============================================================================
 */

@@ -1,11 +1,13 @@
-/* 
-Write a program to find the type of a file.
-a. Input should be taken from command line.
-b. program should be able to identify any type of a file.
+/*
+============================================================================
+Name : 14.c
+Author : Mohit Sharma
+Description :  Write a program to find the type of a file.
+                a. Input should be taken from command line.
+                b. program should be able to identify any type of a file.
+Date: 29th Aug, 2024.
+============================================================================
 */
-
-// Name : Mohit Sharma
-// Roll no : MT2024091
 
 #include <stdio.h> //import perror and printf 
 #include <sys/stat.h> //import stat system call 
@@ -54,7 +56,10 @@ int main(int argc, char *argv[]) {
   return 0;
 }
 
-
-//command line : ./a.out file.txt
-//output : Type of the file: 33188 //combination of file type and file permission in decimal format
-// Its a regular file
+/*
+============================================================================
+command line : ./a.out file.txt
+output : Type of the file: 33188 //combination of file type and file permission in decimal format
+Its a regular file 
+============================================================================
+*/

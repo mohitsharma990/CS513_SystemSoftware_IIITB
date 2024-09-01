@@ -1,6 +1,11 @@
-// Find out the priority of your running program. Modify the priority with nice comman
-// Name : Mohit Sharma
-// Roll no : MT2024091
+/*
+============================================================================
+Name : 20.c
+Author : Mohit Sharma
+Description : Find out the priority of your running program. Modify the priority with nice comman
+Date: 30st Aug, 2024.
+============================================================================
+*/
 
 #include <stdio.h>       // For printf()
 #include <unistd.h>      // For getpid() and nice()
@@ -22,8 +27,11 @@ int main(int argc, char *argv[]) {
   return 0;
 }
 
-/* Output : 
+/*
+============================================================================
+Output : 
 ./a.out                                                                           ─╯
 Priority of process with PID 65283 is 0
 Modified priority of process 10 
+============================================================================
 */

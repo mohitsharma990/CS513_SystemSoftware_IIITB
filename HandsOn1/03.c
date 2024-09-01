@@ -1,6 +1,11 @@
-// Write a program to create a file and print the file descriptor value. Use creat ( ) system call
-// Name : Mohit Sharma
-// Roll no : MT2024091
+/*
+============================================================================
+Name : 03.c
+Author : Mohit Sharma
+Description : Write a program to create a file and print the file descriptor value. Use creat ( ) system call
+Date: 20th Aug, 2024.
+============================================================================
+*/
 
 #include <stdio.h> // imported for perror and printf 
 #include <fcntl.h> // imported for 'creat' system call 
@@ -27,6 +32,10 @@ int main(int argc, char *argv[]) {
   return 0;
 }
 
-// command line : ./a.out newFile
-// output : Succesfully created
-// File 'newFile' created with fd '3'
+/*
+============================================================================
+command line : ./a.out newFile
+output : Succesfully created
+File 'newFile' created with fd '3'
+============================================================================
+*/

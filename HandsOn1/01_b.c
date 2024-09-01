@@ -1,6 +1,11 @@
-// Create a hard link file using 'link' system call
-// Name: Mohit Sharma
-// Roll No: MT2024091
+/*
+============================================================================
+Name : 01_b.c
+Author : Mohit Sharma
+Description : Create a hard link file using 'link' system call 
+Date: 20 Aug, 2024.
+============================================================================
+*/
 
 #include <unistd.h> // to import 'link' system call
 #include <stdio.h> // to import perror and printf
@@ -21,5 +26,9 @@ int main(int argc, char *argv[]) {
   return 0;
 }
 
-// Command line : ./a.out file.txt hardlink
-// Output : Hardlink successfully created
+/*
+==========================================================================
+Command line : ./a.out file.txt hardlink
+Output : Hardlink successfully created
+============================================================================
+*/

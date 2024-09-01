@@ -1,6 +1,11 @@
-// Write a program to open an existing file with read write mode. Try O_EXCL flag also.
-// Name : Mohit Sharma
-// Roll no : MT2024091
+/*
+============================================================================
+Name : 04.c
+Author : Mohit Sharma
+Description : Write a program to open an existing file with read write mode. Try O_EXCL flag also.
+Date: 24th Aug, 2024.
+============================================================================
+*/
 
 #include <stdio.h> // import perror and printf
 #include <fcntl.h> // import 'open' system call
@@ -24,5 +29,9 @@ int main(int argc, char *argv[]) {
   return 0;
 }
 
-// command line : ./a.out 
-// Output : Successfully opened 
+/*
+============================================================================
+command line : ./a.out 
+Output : Successfully opened
+============================================================================
+*/

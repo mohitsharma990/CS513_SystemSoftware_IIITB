@@ -1,13 +1,15 @@
 /*
-Write a program to perform Record locking.
-a. Implement write lock
-b. Implement read lock
-Create three records in a file. Whenever you access a particular record, first lock it then modify/access
-to avoid race condition.
-*/
-
-//Name : Mohit Sharma
-//Roll no : MT2024091
+============================================================================
+Name : 18_create_records.c
+Author : Mohit Sharma
+Description :  Write a program to perform Record locking.
+                  a. Implement write lock
+                  b. Implement read lock
+              Create three records in a file. Whenever you access a particular record, first lock it then modify/access
+              to avoid race condition.
+Date: 30st Aug, 2024.
+============================================================================
+*/ 
 
 #include <stdio.h> // import perror, printf 
 #include <stdlib.h> // import exit 
@@ -50,7 +52,8 @@ int main(int argc, char *argv[]) {
 }
 
 /*
-./a.out records                                                                   ─╯
+============================================================================
+./a.out records
 Record number 1
 Enter number 1 for this record : 12
 Enter number 2 for this record : 13
@@ -60,4 +63,5 @@ Enter number 2 for this record : 15
 Record number 3
 Enter number 1 for this record : 16
 Enter number 2 for this record : 17
+============================================================================
 */

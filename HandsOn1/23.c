@@ -1,7 +1,11 @@
-// Write a program to create a Zombie state of the running program.
-
-// Name : Mohit Sharma
-// Roll no : MT2024091
+/*
+============================================================================
+Name : 23.c
+Author : Mohit Sharma
+Description :  Write a program to create a Zombie state of the running program.
+Date: 30st Aug, 2024.
+============================================================================
+*/
 
 #include <stdio.h> // for printf()
 #include <stdlib.h> // for exit()
@@ -25,8 +29,13 @@ int main(int argc, char *argv[]) {
 //info : 
 //A zombie state is when a completed child process still has an entry in the process table because the parent hasn’t yet retrieved its exit status.
 
-/* output:
+/*
+============================================================================
+Output :
+
 ./a.out                                                                           ─╯
 Current process ID: 67027 and child process ID: 67031
 Child process ID: 67031 and parent process ID: 67027
+
+============================================================================
 */

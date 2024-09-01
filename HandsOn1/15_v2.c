@@ -1,7 +1,11 @@
-//Write a program to display the environmental variable of the user (use environ)
-
-//Name : Mohit Sharma
-//Roll no : MT2024091
+/*
+============================================================================
+Name : 15_v2.c
+Author : Mohit Sharma
+Description : Write a program to display the environmental variable of the user (use environ)
+Date: 30st Aug, 2024.
+============================================================================
+*/
 
 //extern char **environ;: This declares the environ variable, which is an array of strings (character pointers). Each string in the array is an environment variable. 
 //The extern keyword indicates that environ is defined elsewhere, typically provided by the system. 
@@ -17,9 +21,10 @@ int main(){
 	}
 }
 
-//command line : ./a.out
 /*
- * output : 
+============================================================================
+command line : ./a.out
+output : 
 TERM_SESSION_ID=w0t0p0:A1E877AC-ED18-4477-B434-A581AA849CA0
 SSH_AUTH_SOCK=/private/tmp/com.apple.launchd.qzGglH49ui/Listeners
 LC_TERMINAL_VERSION=3.5.4
@@ -61,5 +66,6 @@ LSCOLORS=Gxfxcxdxbxegedabagacad
 LS_COLORS=di=1;36:ln=35:so=32:pi=33:ex=31:bd=34;46:cd=34;43:su=30;41:sg=30;46:tw=30;42:ow=30;43
 P9K_SSH=0
 _P9K_SSH_TTY=/dev/ttys000
-_=/Users/mohitsharma/IIIT Bangalore/Semesters_Info/Sem_1/Software_systems/CS513_SystemSoftware_IIITB/HandsOn1/./a.out
+_=/Users/mohitsharma/IIIT Bangalore/Semesters_Info/Sem_1/Software_systems/CS513_SystemSoftware_IIITB/HandsOn1/./a.out 
+============================================================================
 */

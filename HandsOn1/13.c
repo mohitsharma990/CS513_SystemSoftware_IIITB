@@ -1,8 +1,12 @@
-// Write a program to wait for a STDIN for 10 seconds using select. Write a proper print statement to
-// verify whether the data is available within 10 seconds or not (check in $man 2 select).
-
-// Name : Mohit Sharma
-// Roll no : MT2024091
+/*
+============================================================================
+Name : 13.c
+Author : Mohit Sharma
+Description :  Write a program to wait for a STDIN for 10 seconds using select. Write a proper print statement to
+               verify whether the data is available within 10 seconds or not (check in $man 2 select).
+Date: 29th Aug, 2024.
+============================================================================
+*/
 
 //'select' system call is used to monitor the file descriptors and determine if they have data available within a specified timeout period
 
@@ -33,10 +37,13 @@ int main() {
   return 0;
 }
 
-//command line : ./a.out
-// output : No data was available within 10 seconds.
+/*
+============================================================================
+command line : ./a.out
+output : No data was available within 10 seconds.
 
-//command line : ./a.out
-//mohitsharma
-//output : Data available
-
+command line : ./a.out
+mohitsharma
+output : Data available
+============================================================================
+*/

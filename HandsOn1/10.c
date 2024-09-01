@@ -1,12 +1,14 @@
 /*
-Write a program to open a file with read write mode, write 10 bytes, move the file pointer by 10
-bytes (use lseek) and write again 10 bytes.
-a. check the return value of lseek
-b. open the file with od and check the empty spaces in between the data.
+============================================================================
+Name : 10.c
+Author : Mohit Sharma
+Description : Write a program to open a file with read write mode, write 10 bytes, move the file pointer by 10
+              bytes (use lseek) and write again 10 bytes.
+                    a. check the return value of lseek
+                    b. open the file with od and check the empty spaces in between the data.
+Date: 29th Aug, 2024.
+============================================================================
 */
-
-//Name : Mohit Sharma
-//Roll no : MT2024091
 
 #include <stdio.h> //import printf, perror, scanf 
 #include <fcntl.h> //import open system call 
@@ -40,17 +42,23 @@ int main(int argc, char *argv[]) {
   return 0;
 }
 
-// command line : ./a.out file.txt                                                                                                                                        ─╯
-/* output : Enter 10 characters : mohitsharm
+
+/*
+============================================================================
+command line : ./a.out file.txt                                                                                                                                        ─╯
+output : Enter 10 characters : mohitsharm
 Return value of lseek : 20
 Enter 10 characters again : mohitsharm
 Return value of lseek : 30 
+============================================================================
 */
 
-
-/* b) checking the file contents with 'od' command ie octal dump
-*  command line : od -x file.txt // to display the contents of the file including the empty spaces in hexadecimal format
-*  o/p : 0000000      6f6d    6968    7374    6168    6d72    0000    0000    0000
+/*
+============================================================================
+b) checking the file contents with 'od' command ie octal dump
+command line : od -x file.txt // to display the contents of the file including the empty spaces in hexadecimal format
+o/p : 0000000      6f6d    6968    7374    6168    6d72    0000    0000    0000
 0000020      0000    0000    6f6d    6968    7374    6168    6d72    000a
 0000037
+============================================================================
 */

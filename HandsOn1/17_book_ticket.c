@@ -1,12 +1,14 @@
 /*
-Write a program to simulate online ticket reservation. Implement write lock
-Write a program to open a file, store a ticket number and exit. Write a separate program, to
-open the file, implement write lock, read the ticket number, increment the number and print
-the new ticket number then close the file.
+============================================================================
+Name : 17_book_tickets.c
+Author : Mohit Sharma
+Description : Write a program to simulate online ticket reservation. Implement write lock
+              Write a program to open a file, store a ticket number and exit. Write a separate program, to
+              open the file, implement write lock, read the ticket number, increment the number and print
+              the new ticket number then close the file.
+Date: 30st Aug, 2024.
+============================================================================
 */
-
-// Name : Mohit Sharma
-// Roll no : MT2024091
 
 #include <stdio.h> // import printf, perror
 #include <fcntl.h> // import open  system call 
@@ -56,15 +58,19 @@ int main(int argc, char *argv[]) {
 }
 
 /*
+============================================================================
 ./a.out tickets                                                                   ─╯
 Before entering into the critical section
 Entered inside the critical section
 Current ticket number is : 49
 Press enter to come out of the critical section
+============================================================================
 */
 
-//another terminal
 /*
+============================================================================
+another terminal
 ./a.out tickets                                                                                                                                         ─╯
 Before entering into the critical section
+============================================================================
 */

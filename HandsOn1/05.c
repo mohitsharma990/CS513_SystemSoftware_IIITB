@@ -1,7 +1,12 @@
-// Write a program to create five new files with infinite loop. Execute the program in the background
-// and check the file descriptor table at /proc/pid/fd.
-// Name : Mohit Sharma
-// Roll No : MT2024091
+/*
+============================================================================
+Name : 05.c
+Author : Mohit Sharma
+Description :  Write a program to create five new files with infinite loop. Execute the program in the background
+               and check the file descriptor table at /proc/pid/fd.
+Date: 24th Aug, 2024.
+============================================================================
+*/
 
 #include <stdio.h> // to import printf and perror
 #include <fcntl.h> // to import 'creat' system call
@@ -25,5 +30,9 @@ int main(int argc, char *argv[]) {
   return 0;
 }
 
-// Command line : ./a.out file1 file2 file3 file4 file5
-// output : 
+/*
+============================================================================
+Command line : ./a.out file1 file2 file3 file4 file5 &
+output : 
+============================================================================
+*/

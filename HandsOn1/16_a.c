@@ -1,10 +1,12 @@
 /*
-Write a program to perform mandatory locking.
-a. Implement write lock
+============================================================================
+Name : 16_a.c
+Author : Mohit Sharma
+Description : Write a program to perform mandatory locking.
+              a. Implement write lock
+Date: 30st Aug, 2024.
+============================================================================
 */
-
-//Name : Mohit Sharma
-//Roll no : MT2024091
 
 #include <stdio.h> //import printf and getchar
 #include <fcntl.h> //import fcntl function, open system call, struct flock structure
@@ -48,14 +50,21 @@ int main(int argc, char *argv[]) {
   return 0;
 }
 
-// command line : ./a.out file.txt
-// output : 
-/* 
+/*
+============================================================================
+command line : ./a.out file.txt
+output : 
+ 
 Before the critical section
 Inside the CS
 Press enter to exit the CS
+============================================================================
 */
 
-//another terminal : 
-//command line : ./a.out file.txt
-//output : Before the critical section
+/*
+============================================================================
+another terminal : 
+command line : ./a.out file.txt
+output : Before the critical section
+============================================================================
+*/

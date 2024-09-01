@@ -1,6 +1,11 @@
-// Create a soft link file using the 'symlink' system call.
-// Name: Mohit Sharma
-// Roll No: MT2024091
+/*
+============================================================================
+Name : 01_a.c
+Author : Mohit Sharma
+Description : Create a soft link file using the 'symlink' system call.
+Date: 20 Aug, 2024.
+============================================================================
+*/
 
 #include<unistd.h> // to import symlink system call
 #include<stdio.h> // to import perror & printf
@@ -21,6 +26,9 @@ int main(int argc, char *argv[]) {
   return 0;
 }
 
-
-// Command line: ./a.out file softlink                              ─╯
-// Output: Softlink for the given file created sucessfully
+/*
+============================================================================
+Command line: ./a.out file softlink
+Output: Softlink for the given file created sucessfully
+============================================================================
+*/

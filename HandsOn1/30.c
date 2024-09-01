@@ -11,39 +11,42 @@ Date: 31st Aug, 2024.
 
 #include <stdio.h>      // For printf()
 #include <stdlib.h>     // For exit()
-#include <unistd.h>     // For fork(), setsid(), chdir(), sleep(), getpid()
+#include <unistd.h>     // For fork(), setsid(), sleep(), getpid()
 #include <fcntl.h>      // For open()
-#include <sys/stat.h>   // For umask()
-#include <sys/types.h>  // For pid_t
 
 int main(){
-	int pid = fork();
-	if(pid<0){
-		printf("\nFork issue");
+	int childPid = fork(); // creating a child process 
+	if(childPid == -1){ //fork failed
+		printf("Fork issue occurred\n");
 		exit(1);
 	}
-	else if(pid>0){
-		printf("\nChild process ID: %d", pid);
-		exit(0);
+	else if(childPid > 0){ //this condition means the code is running inside the parent process. 
+                        // The parent prints the child process’s ID and then exits. This allows the child process to continue running in the background.
+		printf("Child process ID: %d\n", childPid);
+		exit(0); // parent process will return 
 	}
+
+  // The setsid() call makes the child process the leader of a new session and a new process group. 
+  // It also detaches the process from any terminal, ensuring it runs independently as a background process.
 	if(setsid() < 0){
-		printf("\nSession issue");
+		printf("Session issue occurred\n");
 		exit(1);
 	}
-	chdir("/");
-	umask(0);
-	
-	int fd = open("logfile.txt", O_CREAT|O_RDWR, S_IRWXU);
-	write(fd, "HI\n", sizeof("HI\n"));
-	if(fd<0){
-		printf("\nError opening logfile");
+  
+  // Work daemon process will be doing 
+  int fd = open("logfile_30.txt", O_CREAT|O_RDWR, S_IRWXU);
+	if(fd == -1){
+		printf("Error opening the logfile\n");
 		exit(1);
 	}
+
+  write(fd, "HI\n", sizeof("HI\n"));
 	while(1){
 		sleep(10);
-		write(fd, "HI\n", sizeof("HI\n"));
+		write(fd, "HI\n", sizeof("HI\n")); 
 	}
-	close(fd);
+
+	close(fd); // due to the infinite loop this line will be never reached
 	
 	return 0;
 }
@@ -52,6 +55,19 @@ int main(){
 ============================================================================
 Output :
 ./a.out
+Child process ID: 76158
 
+
+cat logfile_30.txt                                                                                                                                      ─╯
+HI
+HI
+HI
+HI
+HI
+HI
+HI
+
+
+kill 76158
 ============================================================================
 */
