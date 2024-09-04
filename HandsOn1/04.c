@@ -18,7 +18,9 @@ int main(int argc, char *argv[]) {
   }
 
   int fd = open(argv[1], O_RDWR | O_EXCL); // O_RDWR will open the file in read and write mode and using O_EXCL (exclusive) with it means if file already exits it this system call will return -1 as fd;
-  
+  // you should not use O_EXCL without O_CREAT. The O_EXCL flag is designed to work in conjunction with the O_CREAT flag to ensure that a file is created exclusively
+
+
   if(fd == -1) {
     perror("error occured\n");
   }
@@ -31,7 +33,7 @@ int main(int argc, char *argv[]) {
 
 /*
 ============================================================================
-command line : ./a.out 
-Output : Successfully opened
+command line : ./a.out file.txt
+Output : error occured
 ============================================================================
 */
