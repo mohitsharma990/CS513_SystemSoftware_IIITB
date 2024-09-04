@@ -33,6 +33,20 @@ int main(int argc, char *argv[]) {
 /*
 ============================================================================
 Command line : ./a.out file1 file2 file3 file4 file5 &
-output : 
+output : [1] 14044 
+
+lsof -p 14044
+
+COMMAND   PID        USER   FD   TYPE DEVICE SIZE/OFF      NODE NAME
+a.out   14044 mohitsharma  cwd    DIR   1,18      416    235269 /Users/mohitsharma/Desktop
+a.out   14044 mohitsharma  txt    REG   1,18    50050 450335845 /Users/mohitsharma/Desktop/a.out
+a.out   14044 mohitsharma    0u   CHR  16,28   0t4027     11875 /dev/ttys028
+a.out   14044 mohitsharma    1u   CHR  16,28   0t4027     11875 /dev/ttys028
+a.out   14044 mohitsharma    2u   CHR  16,28   0t4027     11875 /dev/ttys028
+a.out   14044 mohitsharma    3w   REG   1,18        0 450335858 /Users/mohitsharma/Desktop/f1
+a.out   14044 mohitsharma    4w   REG   1,18        0 450335859 /Users/mohitsharma/Desktop/f2
+a.out   14044 mohitsharma    5w   REG   1,18        0 450335860 /Users/mohitsharma/Desktop/f3
+a.out   14044 mohitsharma    6w   REG   1,18        0 450335861 /Users/mohitsharma/Desktop/f4
+a.out   14044 mohitsharma    7w   REG   1,18        0 450335862 /Users/mohitsharma/Desktop/f5
 ============================================================================
 */
