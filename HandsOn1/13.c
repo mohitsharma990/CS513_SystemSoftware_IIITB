@@ -25,7 +25,10 @@ int main() {
   t.tv_usec = 0; // sets the timeout to 0 microseconds 
   
   int retValue = select(1, &fd, NULL, NULL, &t); //monitors 1st file descriptor in the fd set, here NULL means : No file descriptors are monitored for writing or exceptional conditions.
-  
+  //select() returns the number of ready descriptors that are contained in the descriptor sets,
+  //or -1 if an error occurred.  If the time limit expires, select() returns 0
+
+
   if (retValue == -1)
     perror("error\n");
   else if (retValue)
