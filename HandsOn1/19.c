@@ -32,7 +32,7 @@ int main(int argc, char *argv[]) {
 }
 
 //info :
-// getpid() system call, which retrieves the process ID of the calling process. Here’s a breakdown of the code:
+// getpid() system call, which retrieves the process ID of the calling process.
 
 /*
 ============================================================================
