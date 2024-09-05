@@ -36,7 +36,10 @@ int main(int argc, char *argv[]) {
   printf("Before the critical section\n");
   fcntl(fd, F_SETLKW, &mylock); // fcntl is used to apply the lock described by the mylock 
   // F_SETLKW: This command waits until the lock can be acquired if it's currently held by another process. Once acquired, the process enters the critical section.
-    
+  // F_SETLKW : by this the command will wait till it acquires the lock, but if i only pass F_SETLK : then if some other process is locking the critical section it wont wait
+  // till it releases the lock, this will directly return -1 if it can't acquire the lock
+
+
   printf("Inside the CS\n");
   printf("Press enter to exit the CS\n");
   getchar();
