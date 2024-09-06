@@ -2,7 +2,7 @@
 ============================================================================
 Name : 20.c
 Author : Mohit Sharma
-Description : Find out the priority of your running program. Modify the priority with nice comman
+Description : Find out the priority of your running program. Modify the priority with nice command
 Date: 30st Aug, 2024.
 ============================================================================
 */
