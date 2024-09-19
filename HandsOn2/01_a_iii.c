@@ -62,11 +62,13 @@ int main() {
 ============================================================================
 Command line: ./a.out
 Output : 
-Timer expired 1 times
-Timer expired 2 times
-Timer expired 3 times
-Timer expired 4 times
-Timer expired 5 times
+Prof Timer expired 1 times
+Prof Timer expired 2 times
+Prof Timer expired 3 times
+Prof Timer expired 4 times
+Prof Timer expired 5 times
+Prof Timer expired 6 times
+Prof Timer expired 7 times
 ^C
 ============================================================================
 */
