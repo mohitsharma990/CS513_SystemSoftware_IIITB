@@ -17,63 +17,70 @@ Date: 21 Sept 2024
     3. Start communicating -> `write` to and `read` from socketfd
 */
 
-#include <sys/types.h>
-#include <sys/socket.h>
-#include <netinet/ip.h>
-#include <stdio.h>
-#include <unistd.h>
-void main()
-{
-    int socktd = socket(AF_INET, SOCK_STREAM, 0);
-    if (socktd == -1)
-    {
-        perror("Erroe when creating socket");
-        _exit(0);
-    }
-    printf("Socket created\n");
+#include<stdio.h>
+#include<stdlib.h>
+#include<unistd.h>
+#include<sys/types.h>
+#include<sys/stat.h>
+#include<fcntl.h>
+#include<string.h>
+#include<sys/time.h>
+#include<sys/resource.h>
+#include<sys/ipc.h>
+#include<sys/sem.h>
+#include<sys/socket.h>
+#include<netinet/in.h>
+#include<arpa/inet.h>
 
-    // assigning server info
-    struct sockaddr_in address;
-    address.sin_addr.s_addr = htonl(INADDR_ANY); // host to network short
-    address.sin_family = AF_INET;
-    address.sin_port = htons(8080);
-
-    // make connection to the server
-    int connectionS = connect(socktd, (struct sockaddr *)&address, sizeof(address));
-
-    if (connectionS == -1)
-    {
-        perror("Error while establishing Connection\n");
-        _exit(0);
-    }
-
-    printf("Connection with server established\n");
-
-    char buf[100];
-    // read fron server
-    read(socktd, buf, 100);
-    printf("Data from server: %s\n", buf);
-
-    printf("Write massage for server: \n");
-    scanf("%[^\n]", buf);
-
-    write(socktd, buf, sizeof(buf));
-    printf("Data sent to server\n");
-
-    // closing socket
-    close(socktd);
+int main(){
+	struct sockaddr_in serv, cli;
+	
+	int sd = socket(AF_INET, SOCK_STREAM, 0);
+	if(sd < 0){
+		perror("Unable to create socket. \n");
+		exit(0);
+	}
+	
+	bzero(&serv, sizeof(serv));
+	
+	serv.sin_family = AF_INET;
+	serv.sin_addr.s_addr = inet_addr("127.0.0.1");
+	//serv.sin_addr.s_addr = INADDR_ANY;
+	serv.sin_port = htons(7229);
+	
+	if(connect(sd, (struct sockaddr*) &serv, sizeof(serv)) < 0)
+		printf("Unable to connect to server\n");
+	else
+		printf("Connected to server. \n");
+	
+	char buf[1024];
+	int len = sizeof(cli);
+	while(strcmp(buf, "end") != 0){
+		bzero(&buf, sizeof(buf));
+		read(sd, buf, sizeof(buf));
+		printf("Message from server: %s\n", buf);
+		bzero(buf, sizeof(buf));
+		printf("\nEnter the message: ");scanf(" %[^\n]", buf);
+		write(sd, buf, sizeof(buf));
+	}
+	
+	close(sd);
+	return 0;
 }
 
 /*
 ============================================================================
 Command line: ./34_client.c
 Output: 
-Socket created
-Connection with server established
-Data from server: Hello from server
+Connected to server. 
+Message from server: Connection established
 
-Write massage for server: 
-hello server
-Data sent to server
+Enter the message: Hello, how are you doing?
+Message from server: I am doing good!
+
+Enter the message: Great!
+Message from server: Yess!
+
+Enter the message: ^C
 ============================================================================
 */

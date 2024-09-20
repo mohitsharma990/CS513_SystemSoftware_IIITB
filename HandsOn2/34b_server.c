@@ -21,86 +21,165 @@ Date: 21 Sept 2024
     5. Start communicating -> `write` to and `read` from connectionfd
 */
 
-#include <sys/types.h>
-#include <sys/socket.h>
-#include <netinet/ip.h>
-#include <stdio.h>
-#include <unistd.h>
+#include<stdio.h>
+#include<stdlib.h>
+#include<unistd.h>
+#include<sys/types.h>
+#include<sys/stat.h>
+#include<fcntl.h>
+#include<string.h>
+#include<sys/time.h>
+#include<sys/resource.h>
+#include<sys/ipc.h>
+#include<sys/sem.h>
+#include<sys/socket.h>
+#include<netinet/in.h>
+#include<arpa/inet.h>
 #include<pthread.h>
 
-void communicate(int *connectionfd)
-{
+struct param{
+	int csd; 
+	char buf[1024];
+	struct sockaddr_in cli;
+	int len;
+	int cnt;
+	int client_sockets[30];
+	int new_fd;
+	int ix;
+};
 
-    char buf[100];
-    // write fron server to connection fd
-    write(*connectionfd, "Hello from server\n", 19);
+void *update(void *parameters){
 
-    read(*connectionfd, buf, 100);
-    printf("Data from client : %s\n", buf);
-
-    close(*connectionfd);
+	struct param *params = (struct param *) parameters;
+	read(params->csd, params->buf, sizeof(params->buf));
+	//Check end of connection
+	if(strcmp(params->buf, "end") == 0){
+		getpeername(params->csd, (struct sockaddr*)&params->cli,&params->len);
+		printf("\nHost disconnected. Socket: %d.\n",params->client_sockets[params->ix]);
+		close(params->csd);
+		params->client_sockets[params->ix] = 0;
+		params->cnt--;
+	}
+	else{
+		printf("\nMessage from Client %d: %s\n", params->client_sockets[params->ix], params->buf);
+		
+		bzero(params->buf, sizeof(params->buf));
+		//Write message in buffer
+		printf("\nEnter message: ");scanf(" %[^\n]", params->buf);
+		write(params->new_fd, params->buf, sizeof(params->buf));
+	}
 }
 
-void main()
-{
-    int socktd = socket(AF_INET, SOCK_STREAM, 0);
-    if (socktd == -1)
-    {
-        perror("Erroe when creating socket");
-    }
-    printf("server Socket created\n");
+struct param param_array[100];
+int t = 0;
 
-    // server info
-    struct sockaddr_in server, client;
-    server.sin_addr.s_addr = htonl(INADDR_ANY); // host to network long
-    server.sin_family = AF_INET;
-    server.sin_port = htons(8080);
+int main(){
+	struct sockaddr_in serv, cli;
+	int client_sockets[30];
+	fd_set clientfds;
+	int new_fd;
+	char buf[1024];
+	
+	int sd = socket(AF_INET, SOCK_STREAM, 0);
+	if(sd < 0){
+		perror("Unable to create socket. \n");
+		exit(0);
+	}
+	
+	for(int i = 0; i < 30; i++)
+		client_sockets[i] = 0;
+	
+	bzero(&serv, sizeof(serv));
+	
+	serv.sin_family = AF_INET;
+	serv.sin_addr.s_addr = INADDR_ANY;
+	serv.sin_port = htons(7229);
+	
+	if(bind(sd, (struct sockaddr*)&serv, sizeof(serv)) < 0)
+		perror("Bind error\n");
+	listen(sd, 5);
+	
+	int len = sizeof(cli);
+	int cnt = 0;
 
-    int bindS = bind(socktd, (struct sockaddr *)&server, sizeof(server));
-    if (bindS == -1)
-    {
-        perror("Error while binding name to socket!");
-        _exit(0);
-    }
-    printf("Binding to server socket was successful!\n");
+	while(1){
+		FD_ZERO(&clientfds);
 
-    // listen for connection
-    int listenS = listen(socktd, 2);
-    if (listenS == -1)
-    {
-        perror("Error while trying to listen to Connections");
-        _exit(0);
-    }
-    printf("Listning from Connection \n");
+		FD_SET(sd, &clientfds);
+		int max_sd = sd;
 
-    while (1)
-    {
-        int client_size = (int)sizeof(client);
-        int connectionfd = accept(socktd, (struct sockaddr *)&client, &client_size);
-        if (connectionfd == -1)
-        {
-            perror("Error while accepting Connection\n");
-            _exit(0);
-        }
-        else
-        {
-            pthread_t threadID;
-            if (pthread_create(&threadID, NULL, (void *)communicate, &connectionfd))
-                perror("Error while creating thread");
-        }
-    }
-    // closing socket
-    close(socktd);
+		for(int i = 0;i < 30;i++){
+			int scd = client_sockets[i];
+			if(scd > 0)
+				FD_SET(scd, &clientfds);
+			
+			if(scd > max_sd)
+				max_sd = scd;
+		}
+
+		int action = select(max_sd + 1, &clientfds, NULL, NULL, NULL);
+		if(action<0){
+			perror("\nSelect error!\n");
+		}
+		if(FD_ISSET(sd, &clientfds)){
+			new_fd = accept(sd, (struct sockaddr*) &cli, &len);
+			if(new_fd<0)perror("Connection issue\n");
+			cnt++;
+			printf("Client no. %d --- %s : %d connected\n", cnt, inet_ntoa(cli.sin_addr), ntohs(cli.sin_port));
+			
+			printf("Number of active connections: %d\n", cnt);
+			strcpy(buf, "Connection established");
+			write(new_fd, buf, sizeof(buf));
+			
+			for(int i =0;i<30;i++){
+				if(client_sockets[i] == 0){
+					client_sockets[i] = new_fd;
+					printf("\nConnection at socket %d\n", i);
+					break;
+				}
+			}
+		}
+		for(int i = 0;i<30;i++){
+			int csd = client_sockets[i];
+			//Check for change in descriptors
+			if(FD_ISSET(csd, &clientfds)){
+				t++;
+				
+				param_array[t].csd = csd;
+				strcpy(param_array[t].buf, buf);
+				param_array[t].cli = cli;
+				param_array[t].len = len;
+				for(int i=0;i<30;i++)
+			    param_array[t].client_sockets[i] = client_sockets[i];
+				param_array[t].cnt = cnt;
+				param_array[t].new_fd = new_fd;
+				param_array[t].ix = i;
+				
+				pthread_t process;
+				pthread_create(&process, NULL, update, &param_array[t]);
+				pthread_join(process, NULL);
+			}
+		}
+	}
+	return 0;
 }
 
 /*
 ============================================================================
 Command line: ./b_server
-Output: 
-server Socket created
-Binding to server socket was successful!
-Listning from Connection 
-Data from client : hello server
-^C 
+Output:
+Client no. 1 --- 127.0.0.1 : 45274 connected
+Number of active connections: 1
+
+Connection at socket 0
+
+Message from Client 4: Hello, how are you doing?
+
+Enter message: I am doing good!
+
+Message from Client 4: Great!
+
+Enter message: Yess!
+^C
 ============================================================================
 */
