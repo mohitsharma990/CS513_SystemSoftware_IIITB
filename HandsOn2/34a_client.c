@@ -66,7 +66,13 @@ void main()
 
 /*
 ============================================================================
-Command line:
+Command line: ./a_client 
 Output: 
+Socket created
+Connection with server established
+Data from server: Hello client
+Write massage for server: 
+Hey server
+Data sent to server
 ============================================================================
 */

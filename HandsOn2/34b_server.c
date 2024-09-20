@@ -95,7 +95,12 @@ void main()
 
 /*
 ============================================================================
-Command line:
+Command line: ./b_server
 Output: 
+server Socket created
+Binding to server socket was successful!
+Listning from Connection 
+Data from client : hello server
+^C 
 ============================================================================
 */

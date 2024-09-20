@@ -98,5 +98,11 @@ void main()
 ============================================================================
 Command line:
 Output: 
+server Socket created
+Binding to server socket was successful!
+Listning from Connection 
+Write massage form server to client: 
+Hello client
+Data from client : Hey server
 ============================================================================
 */

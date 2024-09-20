@@ -66,7 +66,14 @@ void main()
 
 /*
 ============================================================================
-Command line:
+Command line: ./34_client.c
 Output: 
+Socket created
+Connection with server established
+Data from server: Hello from server
+
+Write massage for server: 
+hello server
+Data sent to server
 ============================================================================
 */
