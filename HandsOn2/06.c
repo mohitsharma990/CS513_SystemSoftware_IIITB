@@ -35,7 +35,7 @@ void main()
 
 /*
 ============================================================================
-Command line: 
+Command line: cc 06.c && ./a.out 
 Output: 
 Running in thread: 247112700850464
 Running in thread: 247112690364704

@@ -1,6 +1,6 @@
 /*
 ============================================================================
-Name : 08_a.c
+Name : 08a.c
 Author : Mohit Sharma
 Description : Write a separate program using signal system call to catch the following signals.
               a. SIGSEGV
@@ -32,7 +32,7 @@ void main()
 
 /*
 ============================================================================
-Command line: ./a.out
+Command line: cc 08a.c && ./a.out
 Output: Signal SIGSEGV has been caught!
 ============================================================================
 */

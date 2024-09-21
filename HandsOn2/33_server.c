@@ -81,7 +81,7 @@ void main()
 
 /*
 ============================================================================
-Command line:
+Command line: ./server
 Output:
 server Socket created
 Binding to server socket was successful!

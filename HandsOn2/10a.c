@@ -1,6 +1,6 @@
 /*
 ============================================================================
-Name : 10.c
+Name : 10a.c
 Author : Mohit Sharma
 Description : Write a separate program using sigaction system call to catch the following signals.
               a. SIGSEGV
@@ -41,7 +41,7 @@ void main()
 
 /*
 ============================================================================
-Command line: ./a.out 
+Command line: cc 10a.c && ./a.out 
 Output: Caught signal SIGSEGV (11)
 ============================================================================
 */

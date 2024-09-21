@@ -1,6 +1,6 @@
 /*
 ============================================================================
-Name : 20_w.c
+Name : 20w.c
 Author : Mohit Sharma
 Description : Write two programs so that both can communicate by FIFO -Use one way communication.
 Date: 19 Sept 2024

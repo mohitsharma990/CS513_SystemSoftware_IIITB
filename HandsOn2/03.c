@@ -56,7 +56,7 @@ void main()
 
 /*
 ============================================================================
-Command line: ./a.out
+Command line: cc 03.c && ./a.out
 Output: 
 
 before updatimg limitsMaximum  size of the process stack - 

@@ -1,3 +1,14 @@
+/*
+============================================================================
+Name : 04.c
+Author : Mohit Sharma
+Description : Write a program to measure how much time is taken to execute 100 getppid ( )
+              system call. Use time stamp counter.
+Date: 12 Sept 2024
+============================================================================
+*/
+
+
 #include <stdio.h>
 #include <time.h>
 #include <unistd.h>
@@ -28,3 +39,12 @@ int main() {
 
     return 0;
 }
+
+
+/*
+============================================================================
+Command line: cc 04.c && ./a.out
+Output : 
+Time required (nanoseconds): 49000
+============================================================================
+*/

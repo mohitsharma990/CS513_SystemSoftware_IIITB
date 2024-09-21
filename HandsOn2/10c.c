@@ -1,6 +1,6 @@
 /*
 ============================================================================
-Name : 10_c.c
+Name : 10c.c
 Author : Mohit Sharma
 Description : Write a separate program using sigaction system call to catch the following signals.
               c. SIGFPE
@@ -38,7 +38,7 @@ int main()
 
 /*
 ============================================================================
-Command line: ./a.out 
+Command line: cc 10c.c && ./a.out 
 Output: Caught signal SIGFPE (8)
 ============================================================================
 */

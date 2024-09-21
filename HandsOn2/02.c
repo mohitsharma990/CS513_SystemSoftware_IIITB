@@ -61,7 +61,7 @@ int main() {
 
 /*
 ============================================================================
-Command line:
+Command line: cc 02.c && ./a.out
 Output: 
 
 System Resource Limits:

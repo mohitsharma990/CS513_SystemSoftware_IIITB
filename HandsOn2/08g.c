@@ -1,6 +1,6 @@
 /*
 ============================================================================
-Name : 08_g.c
+Name : 08g.c
 Author : Mohit Sharma
 Description : Write a separate program using signal system call to catch the following signals.
               g. SIGPROF (use setitimer system call)
@@ -47,7 +47,7 @@ void main()
 
 /*
 ============================================================================
-Command line: ./a.out 
+Command line: cc 08g.c && ./a.out 
 Output: 
 Signal SIGPROF has been caught!
 ============================================================================

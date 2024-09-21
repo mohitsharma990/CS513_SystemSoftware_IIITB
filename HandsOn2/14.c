@@ -37,7 +37,7 @@ int main() {
 
 /*
 ============================================================================
-Command line: ./a.out
+Command line: cc 14.c && ./a.out
 Output: 
 Enter message from parent to child: Hello, how are you?
 Message from parent: Hello, how are you?

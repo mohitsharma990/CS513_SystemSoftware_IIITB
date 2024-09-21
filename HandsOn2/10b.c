@@ -1,6 +1,6 @@
 /*
 ============================================================================
-Name : 10_b.c
+Name : 10b.c
 Author : Mohit Sharma
 Description : Write a separate program using sigaction system call to catch the following signals.
               b. SIGINT
@@ -37,7 +37,7 @@ int main()
 
 /*
 ============================================================================
-Command line: ./a.out 
+Command line: cc 10b.c && ./a.out 
 Output: 
 ^C
 Caught signal SIGINT (2)

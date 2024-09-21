@@ -3,7 +3,7 @@
 Name : 11.c
 Author : Mohit Sharma
 Description : Write a program to ignore a SIGINT signal then reset the default action of the SIGINT signal -
-use sigaction system call.
+              use sigaction system call.
 Date: 19 Sept 2024
 ============================================================================
 */
@@ -57,7 +57,7 @@ int main()
 
 /*
 ============================================================================
-Command line:
+Command line: cc 11.c && ./a.out 
 Output:
 Ignoring SIGINT for 5 seconds!
 ^C^C^C^C^C

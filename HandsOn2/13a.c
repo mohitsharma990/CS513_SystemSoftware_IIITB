@@ -1,6 +1,6 @@
 /*
 ============================================================================
-Name : 13_a.c
+Name : 13a.c
 Author : Mohit Sharma
 Description : Write two programs: first program is waiting to catch SIGSTOP signal, the second program
               will send the signal (using kill system call). Find out whether the first program is able to catch
@@ -42,7 +42,7 @@ void main()
 
 /*
 ============================================================================
-Command line:
+Command line: cc 13a.c && ./a.out
 Output: 
 Process ID: 2231
 Error while catching signal!: Invalid argument

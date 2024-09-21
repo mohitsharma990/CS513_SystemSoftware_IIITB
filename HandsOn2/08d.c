@@ -1,6 +1,6 @@
 /*
 ============================================================================
-Name : 08_d.c
+Name : 08d.c
 Author : Mohit Sharma
 Description : Write a separate program using signal system call to catch the following signals.
               d. SIGALRM (use alarm system call)
@@ -34,7 +34,7 @@ void main()
 
 /*
 ============================================================================
-Command line: ./a.out
+Command line: cc 08d.c && ./a.out
 Output: Signal SIGALRM has been caught!
 ============================================================================
 */

@@ -3,7 +3,7 @@
 Name : 09.c
 Author : Mohit Sharma
 Description :  Write a program to ignore a SIGINT signal then reset the default action of the SIGINT
-signal - Use signal system call.
+               signal - Use signal system call.
 Date: 19 Sept 2024
 ============================================================================
 */
@@ -48,7 +48,7 @@ void main()
 
 /*
 ============================================================================
-Command line: ./a.out 
+Command line: cc 09.c && ./a.out 
 Output: 
 Your SIGINT will be ignored for 5 seconds
 ^C^C^C^C^C^C

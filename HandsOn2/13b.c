@@ -40,7 +40,7 @@ void main(int argc, char *argv[])
 
 /*
 ============================================================================
-Command line:
+Command line: cc 13b.c -o 13b && ./13b 
 Output: 
 Successfully sent SIGSTOP signal to process (2231)
 ============================================================================

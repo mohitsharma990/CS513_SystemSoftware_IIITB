@@ -53,7 +53,7 @@ int main()
 
 /*
 ============================================================================
-Command line:
+Command line: cc 12.c && ./a.out 
 Output:
 Child PID: 12411
 Parent PID: 12407

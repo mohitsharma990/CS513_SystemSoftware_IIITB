@@ -35,7 +35,7 @@ int main() {
 			dup2(fd[1], 1);
 		} else {
 			fcntl(fd[1], F_DUPFD, 1);
-		}gg
+		}
 		execlp("ls", "ls", "-l", (char *)NULL);
 	} else {
 		close(0);
@@ -55,7 +55,7 @@ int main() {
 
 /*
 ============================================================================
-Command line:
+Command line: cc 17.c && ./a.out 
 Output: 
 Enter which one you want to use 
 1.Dup 

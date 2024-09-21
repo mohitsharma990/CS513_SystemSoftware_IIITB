@@ -109,7 +109,7 @@ void main()
 
 /*
 ============================================================================
-Command line:
+Command line: ./a.out 
 Output: 
 entering to obtain lock on the critical section
 Obtained lock on critical section!

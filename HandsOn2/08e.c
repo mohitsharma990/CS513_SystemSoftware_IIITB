@@ -1,6 +1,6 @@
 /*
 ============================================================================
-Name : 08_e.c
+Name : 08e.c
 Author : Mohit Sharma
 Description : Write a separate program using signal system call to catch the following signals.
               e. SIGALRM (use setitimer system call)
@@ -46,7 +46,7 @@ void main()
 
 /*
 ============================================================================
-Command line: ./a.out 
+Command line: cc 08e.c && ./a.out 
 Output: 
 Signal SIGALRM has been caught!
 ============================================================================

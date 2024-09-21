@@ -1,6 +1,6 @@
 /*
 ============================================================================
-Name : 08_f.c
+Name : 08f.c
 Author : Mohit Sharma
 Description : Write a separate program using signal system call to catch the following signals.
               f. SIGVTALRM (use setitimer system call)
@@ -46,7 +46,7 @@ void main()
 
 /*
 ============================================================================
-Command line: ./a.out 
+Command line: cc 08f.c && ./a.out 
 Output: Signal SIGVTALRM has been caught!
 ============================================================================
 */

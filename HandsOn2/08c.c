@@ -1,6 +1,6 @@
 /*
 ============================================================================
-Name : 08_c.c
+Name : 08c.c
 Author : Mohit Sharma
 Description : Write a separate program using signal system call to catch the following signals.
               c. SIGFPE
@@ -31,7 +31,7 @@ void main()
 
 /*
 ============================================================================
-Command line: ./a.out
+Command line: cc 08c.c && ./a.out
 Output: 
 Signal SIGFPE has been caught!
 ============================================================================

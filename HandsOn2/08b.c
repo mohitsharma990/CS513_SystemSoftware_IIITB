@@ -1,6 +1,6 @@
 /*
 ============================================================================
-Name : 08_b.c
+Name : 08b.c
 Author : Mohit Sharma
 Description : Write a separate program using signal system call to catch the following signals.
               b. SIGINT
@@ -31,7 +31,7 @@ void main()
 
 /*
 ============================================================================
-Command line: ./a.out
+Command line: cc 08b.c && ./a.out
 Output: 
 ^C
 Signal SIGINT has been caught!
